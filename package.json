@@ -1,0 +1,50 @@
+{
+  "name": "open-editors-by-folder",
+  "displayName": "Open Editors By Folder",
+  "description": "Groups open editors by workspace folder",
+  "version": "0.0.1",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:open-editors-by-folder.refresh"
+  ],
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "openEditorsByFolder",
+          "name": "Grouped Open Editors",
+          "when": "openEditorsByFolder.hasEditors"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "open-editors-by-folder.refresh",
+        "title": "Refresh Open Editors By Folder"
+      }
+    ]
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc",
+    "watch": "tsc -w",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.13.4",
+    "@vscode/test-electron": "^2.4.1",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@types/vscode": "1.75.0"
+  }
+}
